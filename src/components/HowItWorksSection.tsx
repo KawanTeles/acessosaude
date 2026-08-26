@@ -6,59 +6,93 @@ import { Search, MapPin, Calendar, HeartHandshake } from "lucide-react";
 const steps = [
   {
     icon: Search,
-    title: "1. Escolha o atendimento",
-    description: "Selecione a especialidade médica, exame ou tratamento odontológico que você precisa.",
+    title: "Escolha o atendimento",
+    description: "Selecione a especialidade médica, exame ou odontologia.",
   },
   {
     icon: MapPin,
-    title: "2. Encontre uma unidade",
-    description: "Temos diversas clínicas espalhadas. Escolha a mais próxima de você.",
+    title: "Encontre uma unidade",
+    description: "Busque a clínica mais próxima de você.",
   },
   {
     icon: Calendar,
-    title: "3. Agende seu horário",
-    description: "Entre em contato via WhatsApp ou telefone e marque o melhor horário.",
+    title: "Agende seu horário",
+    description: "Tudo online ou pelo nosso WhatsApp central.",
   },
   {
     icon: HeartHandshake,
-    title: "4. Seja atendido",
-    description: "Compareça no dia agendado e receba um atendimento humano e de qualidade.",
+    title: "Seja atendido",
+    description: "Receba um atendimento humano e de qualidade.",
   }
 ];
 
 export default function HowItWorksSection() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-32 bg-white overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">
-            Cuidar da sua saúde ficou mais fácil
-          </h2>
-          <p className="text-slate-600 text-lg">
-            A Acesso Saúde descomplica o acesso à medicina de qualidade. Veja como é simples ser atendido.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-          {/* Connector Line for Desktop */}
-          <div className="hidden lg:block absolute top-12 left-[10%] right-[10%] h-[2px] bg-slate-100 -z-10" />
-
-          {steps.map((step, index) => (
+        <div className="flex flex-col lg:flex-row items-center gap-16">
+          
+          <div className="lg:w-1/2 order-2 lg:order-1">
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex flex-col items-center text-center relative group"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
             >
-              <div className="w-24 h-24 rounded-full bg-slate-50 border-8 border-white shadow-lg flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 mb-6">
-                <step.icon size={32} strokeWidth={2} />
+              <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">
+                Cuidar da sua saúde <br className="hidden md:block" />
+                <span className="text-accent">ficou mais fácil.</span>
+              </h2>
+              <p className="text-slate-600 text-lg mb-12 max-w-lg leading-relaxed">
+                A Acesso Saúde descomplica a medicina de qualidade. Sem burocracia, sem mensalidade e com o respeito que sua família merece. Veja como é simples:
+              </p>
+              
+              <div className="space-y-8">
+                {steps.map((step, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.15 }}
+                    className="flex gap-6 group"
+                  >
+                    <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shrink-0">
+                      <step.icon size={24} strokeWidth={2.5} />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-slate-800 mb-1 group-hover:text-primary transition-colors">{step.title}</h3>
+                      <p className="text-slate-500 font-medium">{step.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
-              <h3 className="text-xl font-bold text-slate-800 mb-3">{step.title}</h3>
-              <p className="text-slate-500 leading-relaxed max-w-xs">{step.description}</p>
             </motion.div>
-          ))}
+          </div>
+
+          <div className="lg:w-1/2 order-1 lg:order-2 w-full">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, rotate: 2 }}
+              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-[4/5] lg:aspect-auto lg:h-[700px] w-full"
+            >
+              {/* Fallback pattern while loading */}
+              <div className="absolute inset-0 bg-slate-100 animate-pulse -z-10" />
+              
+              <img 
+                src="https://acessosaude.com.br/wp-content/uploads/2024/09/page-header-bg-1.jpg" 
+                alt="Paciente sendo atendido" 
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              
+              {/* Subtle gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
+            </motion.div>
+          </div>
+          
         </div>
       </div>
     </section>
