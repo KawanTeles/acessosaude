@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, HeartPulse, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Header() {
@@ -34,13 +34,12 @@ export default function Header() {
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="bg-primary text-white p-2 rounded-lg group-hover:bg-accent transition-colors">
-            <HeartPulse size={24} strokeWidth={2.5} />
-          </div>
-          <span className="font-bold text-2xl tracking-tight text-primary">
-            Acesso <span className="text-accent">Saúde</span>
-          </span>
+        <Link href="/" className="flex items-center group">
+          <img 
+            src="https://acessosaude.com.br/novo/wp-content/uploads/2024/03/LOGO-NOVA-ACESSO.png" 
+            alt="Acesso Saúde" 
+            className="h-10 w-auto object-contain"
+          />
         </Link>
 
         {/* Desktop Nav */}

@@ -20,13 +20,13 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6 uppercase tracking-wider"
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
               </span>
-              Mais de 20 anos cuidando de você
+              MAIS DE 20 ANOS CUIDANDO DA SUA SAÚDE
             </motion.div>
             
             <motion.div
@@ -35,10 +35,10 @@ export default function HeroSection() {
               transition={{ duration: 0.5, delay: 0.1 }}
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight mb-6 tracking-tight">
-                Satisfação em acolher e cuidar de <span className="text-primary">sua família.</span>
+                Satisfação em acolher e cuidar de <span className="text-primary">você.</span>
               </h1>
               <p className="text-lg md:text-xl text-slate-600 mb-8 max-w-2xl mx-auto lg:mx-0">
-                Bem-vindo à rede Acesso Saúde. Aqui você encontra médicos especialistas, exames laboratoriais e odontologia com a qualidade e o respeito que você merece.
+                A Acesso Saúde oferece acesso a consultas, exames, especialidades e soluções de saúde para você e sua família, com atendimento acessível e humanizado.
               </p>
             </motion.div>
 
@@ -46,21 +46,27 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+              className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-4"
             >
               <Link
                 href="#agendar"
                 className="w-full sm:w-auto flex items-center justify-center gap-2 bg-accent hover:bg-orange-500 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all hover:shadow-xl hover:shadow-accent/20 hover:-translate-y-1"
               >
                 <CalendarCheck size={20} />
-                Agendar Atendimento
+                Agendar atendimento
               </Link>
               <Link
                 href="#unidades"
                 className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white border-2 border-slate-200 hover:border-primary text-slate-700 hover:text-primary px-8 py-4 rounded-xl font-bold text-lg transition-all hover:shadow-lg"
               >
                 <MapPin size={20} />
-                Encontrar Unidade
+                Encontrar uma unidade
+              </Link>
+              <Link
+                href="#sobre"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 text-primary font-bold px-4 py-4 hover:underline transition-all"
+              >
+                Conheça a Acesso Saúde
               </Link>
             </motion.div>
 
@@ -69,19 +75,19 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="mt-10 flex items-center justify-center lg:justify-start gap-6 text-sm font-medium text-slate-500"
+              className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm font-medium text-slate-500"
             >
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
                   <Phone size={16} />
                 </div>
-                <span>Atendimento Rápido</span>
+                <span>Atendimento humanizado</span>
               </div>
               <div className="hidden sm:flex items-center gap-2">
                 <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center">
                   <ArrowRight size={16} />
                 </div>
-                <span>Sem Burocracia</span>
+                <span>Soluções acessíveis</span>
               </div>
             </motion.div>
           </div>
@@ -93,16 +99,10 @@ export default function HeroSection() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] lg:aspect-square"
             >
-              {/* Fallback image style while no real image is loaded */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-slate-900 flex items-center justify-center text-white">
-                <span className="text-lg opacity-50">Imagem de Médicos/Clínica</span>
-              </div>
-              
-              {/* Optional: Add an actual placeholder from unspash if needed */}
               <img 
-                src="https://images.unsplash.com/photo-1638202993928-7267aad84c31?auto=format&fit=crop&w=800&q=80" 
-                alt="Médicos cuidando de paciente" 
-                className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-90"
+                src="https://acessosaude.com.br/wp-content/uploads/2024/10/Satisfacao-em-acolher-e-cuidar-de-voce-scaled.jpg" 
+                alt="Equipe Acesso Saúde" 
+                className="absolute inset-0 w-full h-full object-cover"
               />
             </motion.div>
             
@@ -118,8 +118,8 @@ export default function HeroSection() {
                   <HeartPulse size={24} />
                 </div>
                 <div>
-                  <p className="font-bold text-2xl text-slate-800">1 Milhão+</p>
-                  <p className="text-xs text-slate-500 font-medium">Atendimentos realizados</p>
+                  <p className="font-bold text-2xl text-slate-800">20+ Anos</p>
+                  <p className="text-xs text-slate-500 font-medium">De história e cuidado</p>
                 </div>
               </div>
             </motion.div>

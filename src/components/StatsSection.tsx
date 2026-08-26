@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 const stats = [
   { value: "20+", label: "Anos de história" },
   { value: "30+", label: "Especialidades Médicas" },
-  { value: "1M+", label: "Pacientes Atendidos" },
-  { value: "100%", label: "Foco no seu Bem-estar" },
+  { value: "2.000+", label: "Tipos de Exames" },
+  { value: "15M+", label: "Atendimentos Realizados" },
 ];
 
 export default function StatsSection() {

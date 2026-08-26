@@ -4,46 +4,50 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Search, Phone, Navigation } from "lucide-react";
 
-// Mock data based on typical Acesso Saude units
-const MOCK_UNITS = [
+// Real data from Acesso Saude
+const REAL_UNITS = [
   {
     id: 1,
-    name: "Acesso Saúde - Centro",
+    name: "Acesso Saúde - Curitiba",
     city: "Curitiba, PR",
-    address: "Rua XV de Novembro, 1234 - Centro",
+    address: "Rua Barão do Serro Azul, 198 – 1º Andar – Centro",
     phone: "(41) 3025-3500",
-    hours: "Seg-Sex: 07h às 18h | Sáb: 08h às 12h",
+    hours: "Segunda a Sábado - Agendamento via Central",
+    services: "Consultas médicas, odontologia, exames laboratoriais e de imagem."
   },
   {
     id: 2,
-    name: "Acesso Saúde - Fazenda Rio Grande",
-    city: "Fazenda Rio Grande, PR",
-    address: "Av. das Américas, 500 - Pioneiros",
-    phone: "(41) 3025-3501",
-    hours: "Seg-Sex: 07h às 18h | Sáb: 08h às 12h",
+    name: "Acesso Saúde - Mafra",
+    city: "Mafra, SC",
+    address: "Rua Felipe Schimdt, 509 – Sala 01 – Centro II",
+    phone: "(41) 3025-3500",
+    hours: "Segunda a Sábado - Agendamento via Central",
+    services: "Consultas médicas e exames laboratoriais."
   },
   {
     id: 3,
-    name: "Acesso Saúde - Pinhais",
-    city: "Pinhais, PR",
-    address: "Av. Iraí, 150 - Weissópolis",
-    phone: "(41) 3025-3502",
-    hours: "Seg-Sex: 07h às 18h | Sáb: 08h às 12h",
+    name: "Acesso Saúde - Manaus (Compensa)",
+    city: "Manaus, AM",
+    address: "Av. Brasil, 2549 - Compensa",
+    phone: "(41) 3025-3500",
+    hours: "Segunda a Sábado - Agendamento via Central",
+    services: "Consultas médicas e exames laboratoriais."
   },
   {
     id: 4,
-    name: "Acesso Saúde - Colombo",
-    city: "Colombo, PR",
-    address: "Rod. da Uva, 200 - Centro",
-    phone: "(41) 3025-3503",
-    hours: "Seg-Sex: 07h às 18h | Sáb: 08h às 12h",
+    name: "Acesso Saúde - Manaus (Manoa)",
+    city: "Manaus, AM",
+    address: "Av. Francisco Queiroz, nº 924 - Manoa",
+    phone: "(41) 3025-3500",
+    hours: "Segunda a Sábado - Agendamento via Central",
+    services: "Consultas médicas e exames laboratoriais."
   }
 ];
 
 export default function UnitsSection() {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const filteredUnits = MOCK_UNITS.filter((unit) =>
+  const filteredUnits = REAL_UNITS.filter((unit) =>
     unit.city.toLowerCase().includes(searchTerm.toLowerCase()) || 
     unit.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -104,6 +108,12 @@ export default function UnitsSection() {
                     <Calendar className="text-slate-400 shrink-0 mt-0.5" size={16} />
                     {unit.hours}
                   </p>
+                  {unit.services && (
+                    <div className="mt-4 pt-4 border-t border-slate-100">
+                      <p className="text-slate-500 text-xs uppercase font-bold tracking-wider mb-2">Serviços Disponíveis</p>
+                      <p className="text-slate-700 text-sm font-medium">{unit.services}</p>
+                    </div>
+                  )}
                 </div>
 
                 <div className="flex gap-3">
